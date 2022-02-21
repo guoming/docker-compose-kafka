@@ -7,6 +7,11 @@ networks:
 services:
   zookeeper:
     image: 'bitnami/zookeeper:latest'
+    deploy:
+     resources:
+        limits:
+          cpus: '0.1'
+          memory: "256M"       
     ports:
       - '2181:2181'
     networks:
@@ -15,6 +20,11 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
   kafka:
     image: 'bitnami/kafka:latest'
+    deploy:
+     resources:
+        limits:
+          cpus: '0.1'
+          memory: "256M" 
     ports:
       - '9092:9092'
     networks:
